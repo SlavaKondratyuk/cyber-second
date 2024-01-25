@@ -1,0 +1,19 @@
+<header class="bg-dark-swamp px-3.5">
+  <div class="flex justify-between items-center max-w-screen-2xl mx-auto">
+    <div class="w-100 pt-13 2xl:w-196">
+      <h6 class="absolute text-white text-xsm top-1 ml-1.5 sm:text-sm 2xl:text-lg 2xl:font-bold">офіційний сайт</h6>
+      <img class="w-100 2xl:w-196" src='{{logoPath}}' alt="CyberPoliceLogo">
+    </div>
+    <div *ngIf="loggedIn">
+      <p class="text-white sm:text-3xl sm:font-semibold text-sm-custom">{{eMail}}</p>
+    </div>
+    <div class="login-logout">
+      <button
+        class="text-white text-sm sm:text-lg 2xl:text-3xl font-bold cursor-pointer p-2 sm:border sm:border-white sm:rounded"
+        (click)="loggedInToggle()"
+        >
+        {{loggedIn ? 'logout' : 'logIn'}}
+      </button>
+    </div>
+  </div>
+</header>

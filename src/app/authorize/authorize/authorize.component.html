@@ -1,0 +1,10 @@
+<section>
+    <button (click)="toggleRegister()">{{register ? 'logIn' : 'register'}}</button>
+    <div *ngIf="register">
+        <app-register-form></app-register-form>
+    </div>
+    <div *ngIf="!register">
+        <app-login-form></app-login-form>
+    </div>
+</section>
+

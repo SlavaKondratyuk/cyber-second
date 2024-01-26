@@ -4,6 +4,7 @@ import { RegisterFormComponent } from './authorize/register-form/register-form.c
 import { LoginFormComponent } from './authorize/login-form/login-form.component';
 import { AuthorizeComponent } from './authorize/authorize.component';
 import { RouterModule } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -18,6 +19,8 @@ import { RouterModule } from '@angular/router';
     RouterModule.forChild([
       { path: '', component: AuthorizeComponent },
     ]),
+    FormsModule,
+    ReactiveFormsModule,
   ]
 })
 export class AuthorizeModule { }

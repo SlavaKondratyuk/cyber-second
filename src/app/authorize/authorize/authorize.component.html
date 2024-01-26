@@ -1,7 +1,11 @@
-<section>
-    <button (click)="toggleRegister()">{{register ? 'logIn' : 'register'}}</button>
+<section class="md:max-w-2xl 2xl:max-w-screen-2xl mx-auto p-4">
+    <button
+        class="bg-yellow text-white rounded-md px-4 py-3 mt-6 w-full text-2xl font-semibold hover:bg-light-yellow cursor-pointer"
+        (click)="toggleRegister()">
+        {{register ? 'увійти в систему' : 'створити аккаунт'}}
+    </button>
     <div *ngIf="register">
-        <app-register-form></app-register-form>
+        <app-register-form (register)="toggleRegister()"></app-register-form>
     </div>
     <div *ngIf="!register">
         <app-login-form></app-login-form>

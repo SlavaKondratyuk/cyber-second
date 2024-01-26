@@ -1,1 +1,53 @@
-<p>login-form works!</p>
+<form class="mt-5" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <div class="bg-dark-grey w-full rounded-tl-lg p-2.5">
+    <p class="text-white">Увійти в систему</p>
+  </div>
+  <div class="flex flex-col relative">
+    <label class="px-2.5" for="email">Email:</label>
+    <input
+      type="email"
+      class="form-input px-4 py-3 rounded-md border focus:border-sky-500 focus:ring-sky-500"
+      id="email"
+      formControlName="email">
+    <div
+      class="absolute top-73 left-2.5 text-red"
+      *ngIf="hasError('email', 'required')">
+        Email is required.
+      </div>
+    <div
+      class="absolute top-73 left-2.5 text-red"
+      *ngIf="hasError('email', 'pattern')">
+        Invalid email format.
+      </div>
+    <div
+      class="absolute top-73 left-2.5 text-red"
+      *ngIf="hasError('email', 'maxlength')">
+        Email is too long.
+      </div>
+  </div>
+
+  <div class="flex flex-col mt-8 relative">
+    <label class="px-2.5" for="password">Password:</label>
+    <input
+      type="password"
+      class="form-input px-4 py-3 rounded-md border"
+      id="password"
+      formControlName="password">
+    <div
+      class="absolute top-73 left-2.5 text-red"
+      *ngIf="hasError('password', 'required')">
+        Password is required.
+      </div>
+    <div
+      class="absolute top-73 left-2.5 text-red"
+      *ngIf="hasError('password', 'minlength')">
+        Password must be at least 8 characters long.
+      </div>
+  </div>
+
+  <button
+    type="submit"
+    class="bg-dark-grey text-white rounded-md px-4 py-3 mt-6 w-full text-2xl font-semibold hover:bg-blue-grey cursor-pointer">
+    Login
+  </button>
+</form>

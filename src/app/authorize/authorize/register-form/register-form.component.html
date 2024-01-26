@@ -1,1 +1,89 @@
-<p>register-form works!</p>
+<form class="mt-5" [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+  <div class="bg-dark-grey w-full rounded-tl-lg p-2.5">
+    <p class="text-white">Реєстрація</p>
+  </div>
+  <div class="flex flex-col relative">
+    <label class="px-2.5" for="email">Email:</label>
+    <input
+      type="text"
+      class="form-input px-4 py-3 rounded-md border focus:border-sky-500 focus:ring-sky-500"
+      id="email"
+      formControlName="email">
+    <div
+      class="absolute top-73 left-2.5 text-red"
+      *ngIf="hasError('email', 'required')">
+      Email is required.
+    </div>
+    <div 
+      class="absolute top-73 left-2.5 text-red"
+      *ngIf="hasError('email','email')">
+      Invalid email format.
+    </div>
+  </div>
+  
+  <div class="flex flex-col mt-8 relative">
+    <label class="px-2.5" for="phone">Phone:</label>
+    <input
+      class="form-input px-4 py-3 rounded-md border focus:border-sky-500 focus:ring-sky-500"
+      type="text" 
+      id="phone"
+      formControlName="phone">
+    <div
+      class="absolute top-73 left-2.5 text-red"
+      *ngIf="hasError('phone', 'required')">
+      Phone is required.
+    </div>
+    <div
+      class="absolute top-73 left-2.5 text-red"
+      *ngIf="hasError('phone', 'pattern')">
+      Invalid phone format (should start with +380 and be 13 digits long).
+    </div>
+    <div 
+      class="absolute top-73 left-2.5 text-red"
+      *ngIf="hasError('phone', 'maxlength')">
+      Phone number is too long (maximum length is 13).
+    </div>
+  </div>
+  
+  <div class="flex flex-col mt-8 relative">
+    <label class="px-2.5" for="password">Password:</label>
+    <input
+      class="form-input px-4 py-3 rounded-md border focus:border-sky-500 focus:ring-sky-500"
+      type="password"
+      id="password"
+      formControlName="password">
+    <div
+      class="absolute top-73 left-2.5 text-red"
+      *ngIf="hasError('password', 'required')">
+      Password is required.
+    </div>
+    <div
+      class="absolute top-73 left-2.5 text-red"
+      *ngIf="hasError('password', 'minlength')">
+      Password must be at least 8 characters long.
+    </div>
+  </div>
+  
+  <div class="flex flex-col mt-8 relative">
+    <label class="px-2.5" for="confirmPassword">Confirm Password:</label>
+    <input
+      class="form-input px-4 py-3 rounded-md border focus:border-sky-500 focus:ring-sky-500"
+      type="password" id="confirmPassword" formControlName="confirmPassword">
+    <div
+      class="absolute top-73 left-2.5 text-red"
+      *ngIf="hasError('confirmPassword', 'required')">
+      Confirm Password is required.
+    </div>
+    <div
+      class="absolute top-73 left-2.5 text-red"
+      *ngIf="hasError('confirmPassword', 'passwordMismatch')">
+      Passwords do not match.
+    </div>
+  </div>
+
+  <button
+    type="submit"
+    class="bg-dark-grey text-white rounded-md px-4 py-3 mt-6 w-full text-2xl font-semibold hover:bg-blue-grey cursor-pointer">
+    Register
+  </button>
+</form>

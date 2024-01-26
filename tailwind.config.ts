@@ -14,6 +14,9 @@ export default {
       'light-grey': '#9a9a9a',
       'dark-grey': '#293d50',
       'yellow': '#DFB331',
+      'light-yellow': '#d9cc36',
+      'dark-yellow': '#c8cc5c',
+      'red': '#ff0000',
     },
     fontSize: {
       'xsm': '0.5rem',
@@ -34,12 +37,17 @@ export default {
       spacing: {
         '196': '12.25rem',
         '100': '6.25rem',
+        '73': '4.563rem',
         '50': '3.125rem',
         '13': '0.813rem',
       },
       borderRadius: {}
     }
   },
-  plugins: [],
+  plugins: [
+    // require('@tailwindcss/forms')({
+    //   strategy: 'class',
+    // }),
+  ],
 } satisfies Config
 

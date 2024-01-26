@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 import { User } from 'src/assets/interfaces/userInterface';
 
 @Injectable({
@@ -8,10 +10,14 @@ export class LoginService {
   userList: User[] = [
     {
       email: 'admin@gmail.com',
-      password: 'admin',
+      password: 'admin123',
       phone: '0123456789',
     }
   ];
+
+  currentUser: BehaviorSubject<User | null> = new BehaviorSubject<User | null>(null);
+
+  constructor(private router: Router) { }
 
   getUserList(): User[] {
     return this.userList;
@@ -21,12 +27,15 @@ export class LoginService {
     return this.userList.find(user => user.email === email);
   };
 
-  logIn(email: string, phone: string): void {
+  logIn(email: string, password: string): void {
     const user = this.findUserByEmail(email);
-    if (user && user.phone === phone) {
+    if (user && user.password === password) {
       localStorage.setItem('userEmail', JSON.stringify(user.email));
       localStorage.setItem('userPhone', JSON.stringify(user.phone));
       localStorage.setItem('isLoggedIn', JSON.stringify(true));
+
+      this.currentUser.next(user);
+      this.router.navigate(['/main']);
     }
   };
 
@@ -34,5 +43,24 @@ export class LoginService {
     localStorage.removeItem('userEmail');
     localStorage.removeItem('userPhone');
     localStorage.removeItem('isLoggedIn');
+
+    this.currentUser.next(null);
+    this.router.navigate(['/authorize']);
   };
+
+  isLoggedIn(): boolean {
+    return this.currentUser.value !== null;
+  };
+
+  getUserEmail(): string | null {
+    return localStorage.getItem('userEmail');
+  };
+
+  getUserPhone(): string | null {
+    return localStorage.getItem('userPhone');
+  };
+
+  registerNewUser(user: User): void {
+    this.userList.push(user);
+  }
 }

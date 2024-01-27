@@ -1,0 +1,25 @@
+<div class="px-4 box-border mt-5">
+  <div>
+    <img class="w-44 h-44 mx-auto" src="{{article?.iconUrl}}" alt="">
+  </div>
+  <div>
+    <p class="text-blue-grey/50 text-right">{{article?.date}}</p>
+  </div>
+  <div>
+    <h4 class="text-center text-5xl">{{article?.title}}</h4>
+  </div>
+  <div>
+    <p class="text-center">
+      {{
+        article?.shortDescription!.length
+        >
+        maxAllowedDescriptionLength
+        ?
+        article?.shortDescription?.substring(0, maxAllowedDescriptionLength)
+        +
+        '...'
+        :
+        article?.shortDescription
+      }}
+    </p>
+</div>

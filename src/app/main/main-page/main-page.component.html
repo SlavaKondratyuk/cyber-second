@@ -1,30 +1,35 @@
 <section class="bg-blue-grey p-5">
-    <div class="flex text-white lg:flex-wrap justify-around">
-        <div class="lg:inline-block hidden w-1/4 lg:w-28 justify-between items-center">
-            <img class="w-full" src="{{mainLogo}}" alt="Ukrainian Тризуб">
-        </div>
-        <div class="pt-5 text-center lg:w-3/4">
-            <h2 class="text-xl md:text-2xl lg:text-3x1">ПРО ПІДРОЗДІЛ</h2>
-            <p class="text-xl md:text-2xl">{{aboutUnit}}</p>
-        </div>
+  <div class="flex text-white lg:flex-wrap justify-around max-w-screen-2xl mx-auto">
+    <div class="lg:inline-block hidden w-1/4 lg:w-28 justify-between items-center">
+      <img class="w-full" src="{{mainLogo}}" alt="Ukrainian Тризуб">
     </div>
-    <div class="flex flex-wrap justify-evenly mt-5">
-        <div
-            class="w-12 h-12 rounded-full bg-white bg-opacity-50 flex items-center justify-center">
-            <a class="w-full h-full flex items-center justify-center" href="https://www.facebook.com/"><fa-icon [icon]="faSquarePhoneFlip" size="lg"></fa-icon></a>
-        </div>
-        <div
-            class="w-12 h-12 rounded-full bg-white bg-opacity-50 flex items-center justify-center">
-            <a class="w-full h-full flex items-center justify-center" href="https://www.instagram.com/">
-                <fa-icon [icon]="faTelevision" size="lg"></fa-icon>
-            </a>
-        </div>
-        <div
-            class="w-12 h-12 rounded-full bg-white bg-opacity-50 flex items-center justify-center">
-            <a class="w-full h-full flex items-center justify-center" href="https://web.telegram.org/">
-                <fa-icon [icon]="faLaptop" size="lg"></fa-icon>
-            </a>
-        </div>
+    <div class="text-center md:text-left lg:w-3/4">
+      <h2 class="text-xl md:text-2xl lg:text-3x1">ПРО ПІДРОЗДІЛ</h2>
+        <p class="text-xl md:text-2xl xl:leading-8">{{aboutUnit}}</p>
     </div>
-    
+  </div>
+  <div class="flex flex-wrap justify-evenly mt-5 lg:justify-center lg:pl-2">
+    <div
+      class="w-12 h-12 rounded-full bg-white bg-opacity-50 flex items-center justify-center lg:mr-2.5 hover:scale-125">
+        <a class="w-full h-full flex items-center justify-center" href="https://www.facebook.com/">
+          <fa-icon [icon]="faSquarePhoneFlip" size="lg"></fa-icon>
+        </a>
+    </div>
+    <div
+      class="w-12 h-12 rounded-full bg-white bg-opacity-50 flex items-center justify-center lg:mr-2.5 hover:scale-125">
+        <a class="w-full h-full flex items-center justify-center" href="https://www.instagram.com/">
+          <fa-icon [icon]="faTelevision" size="lg"></fa-icon>
+        </a>
+    </div>
+    <div
+      class="w-12 h-12 rounded-full bg-white bg-opacity-50 flex items-center justify-center lg:mr-2.5 hover:scale-125">
+        <a class="w-full h-full flex items-center justify-center" href="https://web.telegram.org/">
+          <fa-icon [icon]="faLaptop" size="lg"></fa-icon>
+        </a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <app-news-list></app-news-list>
 </section>

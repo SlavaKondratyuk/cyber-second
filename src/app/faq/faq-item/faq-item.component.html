@@ -1,0 +1,10 @@
+<div class="lg:w-64" (click)="toggleAnswer()">
+  <div class="question flex items-center">
+    <span class="text-5xl pr-3">+</span>
+    <p class="text-2xl">
+      {{ question.question }}
+    </p>
+    
+  </div>
+  <div *ngIf="answerVisible" class="text-2xl border-b-4 md:ml-7">{{ question.answer }}</div>
+</div>

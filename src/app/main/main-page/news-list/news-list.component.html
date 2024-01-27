@@ -1,0 +1,13 @@
+<div>
+  <div class="flex flex-col pt-5 max-w-6xl lg:flex-row mx-auto">
+    <app-news-item *ngFor="let article of currentItems" [article]="article"></app-news-item>
+  </div>
+  <div>
+    <app-pagination
+      [total]="totalItems"
+      [limit]="limit"
+      [currentPage]="currentPage"
+      (changePage)="changePage($event)">
+    </app-pagination>
+  </div>
+</div>

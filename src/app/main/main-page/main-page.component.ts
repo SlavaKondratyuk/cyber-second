@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { faSquarePhoneFlip } from '@fortawesome/free-solid-svg-icons';
 import { faTelevision } from '@fortawesome/free-solid-svg-icons';
 import { faLaptop } from '@fortawesome/free-solid-svg-icons';
@@ -6,7 +6,8 @@ import { faLaptop } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-main-page',
   templateUrl: './main-page.component.html',
-  styleUrls: ['./main-page.component.css']
+  styleUrls: ['./main-page.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MainPageComponent {
   faSquarePhoneFlip = faSquarePhoneFlip;

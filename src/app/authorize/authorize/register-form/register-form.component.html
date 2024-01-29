@@ -6,7 +6,7 @@
     <label class="px-2.5" for="email">Email:</label>
     <input
       type="text"
-      class="form-input px-4 py-3 rounded-md border focus:border-sky-500 focus:ring-sky-500"
+      class="form-input px-4 py-3 rounded-md border"
       id="email"
       formControlName="email">
     <div
@@ -36,7 +36,7 @@
     <div
       class="absolute top-73 left-2.5 text-red"
       *ngIf="hasError('phone', 'pattern')">
-      Invalid phone format (should start with +380 and be 13 digits long).
+      Invalid phone format (should start with +380 and be 9 digits long).
     </div>
     <div 
       class="absolute top-73 left-2.5 text-red"

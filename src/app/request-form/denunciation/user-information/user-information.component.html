@@ -1,0 +1,86 @@
+<div [formGroup]="userInformationForm">
+  <div class="lg:flex lg:justify-between lg:px-5">
+    <div class="flex flex-col relative lg:mt-5 lg:w-percent-28">
+      <label class="px-2.5" for="lastName">Прізвище:</label>
+      <input
+        class="form-input px-4 py-3 rounded-md border"
+        type="text" id="lastName" formControlName="lastName">
+      <div>
+        <div
+          class="absolute top-73 left-2.5 text-red"
+          *ngIf="hasError('lastName', 'required')">
+          Last Name is required.
+        </div>
+      </div>
+    </div>
+    <div class="flex flex-col relative mt-5 lg:w-percent-28">
+      <label
+        class="px-2.5"
+        for="firstName">Ім'я:</label>
+      <input
+        class="form-input px-4 py-3 rounded-md border"
+        type="text" id="firstName" formControlName="firstName">
+      <div
+        class="absolute top-73 left-2.5 text-red"
+        *ngIf="hasError('firstName', 'required')">
+        First Name is required.
+      </div>
+    </div>
+    <div class="flex flex-col relative mt-5 lg:w-percent-28">
+      <label
+        class="px-2.5" 
+        for="middleName">По-батькові:</label>
+      <input
+        class="form-input px-4 py-3 rounded-md border"
+        type="text" id="middleName" formControlName="middleName">
+      <div
+        class="absolute top-73 left-2.5 text-red"
+        *ngIf="hasError('middleName', 'required')">
+        Middle Name is required.
+      </div>
+    </div>
+  </div>
+  <div class="lg:flex lg:justify-between lg:px-5">
+    <div class="flex flex-col relative mt-5 lg:w-percent-48">
+      <label
+        class="px-2.5"
+        for="email">Email:</label>
+      <input
+        class="form-input px-4 py-3 rounded-md border"
+        placeholder="anyValidEmail@ggg.com"
+        type="text"
+        id="email"
+        formControlName="email">
+      <div
+        class="absolute top-73 left-2.5 text-red"
+        *ngIf="hasError('email', 'required')">
+        Email is required.
+      </div>
+      <div
+        class="absolute top-73 left-2.5 text-red"
+        *ngIf="hasError('email', 'email')">
+        Email must be a valid email address.
+      </div>
+    </div>
+    <div class="flex flex-col relative mt-5 lg:w-percent-48">
+      <label
+        class="px-2.5"
+        for="phone">Phone:</label>
+      <input
+        class="form-input px-4 py-3 rounded-md border"
+        placeholder="+380971324567"
+        type="text"
+        id="phone"
+        formControlName="phone">
+      <div
+        class="absolute top-73 left-2.5 text-red"
+        *ngIf="hasError('phone', 'required')">
+        Phone is required.
+      </div>
+      <div
+        class="absolute top-73 left-2.5 text-red"
+        *ngIf="hasError('phone', 'pattern')">
+        Invalid phone format (should start with +380 and be 9 digits long).
+      </div>
+  </div>
+</div>

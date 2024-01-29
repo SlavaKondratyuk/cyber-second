@@ -1,1 +1,24 @@
-<p>denunciation works!</p>
+<div class="mt-5 md:max-w-2xl lg:max-w-5xl 2xl:max-w-screen-2xl mx-auto p-4 md:p-0">
+  <div class="bg-dark-grey w-full rounded-tl-lg p-2.5">
+    <h1 class="text-white">Denunciation</h1>
+  </div>
+  <form [formGroup]="denunciationForm" (ngSubmit)="submitForm()">
+    <app-user-information [userInformationForm]="userInformation"></app-user-information>
+    <app-event [eventForm]="getEvent"></app-event>
+    <div class="bg-dark-grey w-full rounded-tl-lg p-2.5 mt-5">
+      <h1 class="text-white">Дані підозруваного:</h1>
+    </div>
+    <div class="lg:flex" *ngFor="let crimePerson of crimePersons.controls; let i = index" >
+      <app-crime-person class="lg:w-11/12" [crimePerson]="getCrimePerson(i)" [index]="i"></app-crime-person>
+      <div class="pt-5 lg:flex lg:flex-col">
+        <button class="border border-x-dark-swamp leading-8 py-1 px-3.5 text-6xl hover:bg-grey rounded-md" (click)="addCrimePerson()">+</button>
+        <button class="border border-x-dark-swamp leading-8 py-1 px-4 text-6xl hover:bg-grey rounded-md ml-5 lg:ml-0" (click)="removeCrimePerson(i)">-</button>
+      </div>
+    </div>
+    <button
+      class="bg-dark-grey text-white rounded-md px-4 py-3 mt-6 w-full text-2xl font-semibold hover:bg-blue-grey cursor-pointer"
+      type="submit">Submit
+    </button>
+  </form>
+</div>
+

@@ -9,7 +9,7 @@ import User from 'src/assets/interfaces/userInterface';
 export class LoginService {
   userList: User[] = [
     {
-      email: 'admin@gmail.com',
+      email: 'admin@g.com',
       password: 'admin123',
       phone: '0123456789',
     }
@@ -49,6 +49,16 @@ export class LoginService {
   };
 
   isLoggedIn(): boolean {
+    if (localStorage.getItem('isLoggedIn') === 'true') {
+      const userEmail = localStorage.getItem('userEmail');
+      const userPhone = localStorage.getItem('userPhone');
+      this.currentUser.next({
+        email: userEmail?.toString() || '',
+        phone: userPhone?.toString() || '',
+        password: '',
+      });
+
+    }
     return this.currentUser.value !== null;
   };
 

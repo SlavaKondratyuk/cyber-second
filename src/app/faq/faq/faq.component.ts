@@ -30,6 +30,8 @@ export class FaqComponent implements OnInit{
       question: this.questionText,
       userEmail: this.userEmail,
     });
+
+    this.questionText = '';
   }
 
 }

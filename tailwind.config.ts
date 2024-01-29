@@ -49,6 +49,9 @@ export default {
         '50': '3.125rem',
         '30': '1.875rem',
         '13': '0.813rem',
+        'percent-28': '28%',
+        'percent-48': '48%',
+        'percent-73': '73%',
       },
       screens: {
         '4k': '2560px',

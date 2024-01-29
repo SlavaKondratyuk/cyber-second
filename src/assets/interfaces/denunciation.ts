@@ -1,7 +1,7 @@
 export default interface Denunciation {
   userInformation:{
     firstName: string,
-    secondName: string,
+    lastName: string,
     middleName: string,
     phone: string,
     email: string,
@@ -9,6 +9,19 @@ export default interface Denunciation {
   event: {
     typeEvent: string,
     textEvent: string,
-    imageEvent: string[],
+    imageEvent?: string[],
   },
-}
+  crimePersonEvent: CrimePersonEvent[] | [],
+  }
+
+interface CrimePersonEvent {
+  secondName_crimePersonEvent?: string,
+  firstName_crimePersonEvent?: string,
+  middleName_crimePersonEvent?: string,
+  additionalData_crimePersonEvent?: AdditionalData[] | [],
+};
+
+interface AdditionalData {
+  dataType: string,
+  data: string,
+};

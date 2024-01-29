@@ -1,5 +1,5 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { LoginService } from './services/login.service';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +7,12 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
   styleUrls: ['./app.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'cyber-second';
+
+  constructor(private ls: LoginService) {}
+
+  ngOnInit(): void {
+    this.ls.isLoggedIn();
+  }
 }

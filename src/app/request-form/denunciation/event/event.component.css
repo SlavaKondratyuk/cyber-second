@@ -1,0 +1,12 @@
+.overflow-container {
+    width: 100%; 
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.overflow-item {
+    width: 25%; 
+    margin-right: 10px;
+    background-color: #ddd;
+    display: inline-block;
+}

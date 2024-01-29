@@ -12,6 +12,7 @@ import { TimerComponent } from './footer/timer/timer.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from './shared/shared.module';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,9 @@ import { SharedModule } from './shared/shared.module';
     RouterLink,
     RouterLinkActive,
     ReactiveFormsModule,
-    SharedModule
+    SharedModule,
+    MatProgressSpinnerModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

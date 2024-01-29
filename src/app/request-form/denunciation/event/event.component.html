@@ -1,0 +1,57 @@
+<div class="mt-5">
+  <form [formGroup]="eventForm">
+    <div class="lg:flex lg:justify-between lg:px-5 lg:flex-wrap">
+      <div class="flex flex-col relative lg:w-3/12">
+        <label class="px-2.5" for="typeEvent">Тип події:</label>
+        <select
+          class="form-input px-4 py-3 rounded-md border"
+          id="typeEvent"
+          formControlName="typeEvent">
+          <option *ngFor="let item of crimeList" [value]="item">{{item}}</option>
+        </select>
+        <div 
+          class="absolute top-73 left-2.5 text-red"
+          *ngIf="hasError('typeEvent', 'required')">
+          Поле обов'язкове для заповнення.
+        </div>
+      </div>
+        <div class="flex flex-col relative mt-5 lg:mt-0 lg:w-percent-73">
+          <label class="px-2.5" for="textEvent">Опис поідї:</label>
+            <textarea
+              class="form-input px-4 py-3 rounded-md border lg:h-40"
+              id="textEvent"
+              formControlName="textEvent"></textarea>
+            <div
+              class="absolute top-24 left-2.5 text-red"
+              *ngIf="hasError('textEvent', 'required')">
+              Поле обов'язкове для заповнення.
+            </div>
+            <div
+              class="absolute top-24 left-2.5 text-red"
+              *ngIf="hasError('textEvent', 'minlength')">
+              Поле повинно містити не менше 10 символів.
+            </div>
+            <div
+              class="absolute top-24 left-2.5 text-red"
+              *ngIf="hasError('textEvent', 'maxlength')">
+              Поле повинно містити не більше 20 000 символів.
+            </div>
+        </div>
+      <div class="pt-5 lg:w-full">
+        <label for="imageEvent">Image Event (optional):</label>
+        <input type="file" id="imageEvent" (change)="handleImageUpload($event)">
+        
+        <div class="mt-5 flex overflow-container" formArrayName="imageArray">
+          <div
+            class="mr-2.5 overflow-item"
+            *ngFor="let imageControl of imageArray.controls; let i = index">
+            <img class="w-full" [src]="imageControl.value" alt="Image {{ i }}">
+            <button
+              class="bg-dark-grey text-white rounded-md px-4 py-3 mt-6 w-full text-2xl font-semibold hover:bg-blue-grey cursor-pointer"
+              type="button" (click)="removeImage(i)">Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
